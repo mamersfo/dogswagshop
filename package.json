@@ -10,6 +10,8 @@
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
     "@tailwindcss/typography": "^0.5.10",
+    "@trigger.dev/nextjs": "^2.3.5",
+    "@trigger.dev/sdk": "^2.3.5",
     "autoprefixer": "10.4.15",
     "clsx": "^2.0.0",
     "daisyui": "^4.4.19",
