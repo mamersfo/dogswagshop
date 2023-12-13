@@ -56,6 +56,43 @@ export interface Database {
           }
         ]
       }
+      orders: {
+        Row: {
+          date: string | null
+          id: string
+          line_items: Json | null
+          number: number
+          state: Json | null
+          status: string | null
+          user_id: string
+        }
+        Insert: {
+          date?: string | null
+          id: string
+          line_items?: Json | null
+          number: number
+          state?: Json | null
+          status?: string | null
+          user_id: string
+        }
+        Update: {
+          date?: string | null
+          id?: string
+          line_items?: Json | null
+          number?: number
+          state?: Json | null
+          status?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       products: {
         Row: {
           id: number

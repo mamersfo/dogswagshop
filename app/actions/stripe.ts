@@ -6,10 +6,10 @@ import { type Stripe } from 'stripe'
 import { stripe } from '@/utils/stripe'
 import { redirect } from 'next/navigation'
 import type { LineItem } from '@/types'
+import { orderMachine } from '@/lib/order/machine'
+import { createActor } from 'xstate'
 
 export async function createCheckoutSession(data: FormData): Promise<void> {
-    console.log('createCheckoutSession', data)
-
     const cookieStore = cookies()
     const supabase = createClient(cookieStore)
 
@@ -36,6 +36,22 @@ export async function createCheckoutSession(data: FormData): Promise<void> {
 
     if (!(cartState?.context.itemCount > 0)) {
         throw new Error('nothing in cart')
+    }
+
+    let state = createActor(orderMachine).start().getPersistedSnapshot() as any
+
+    const { error: orderError } = await supabase.from('orders').upsert({
+        id,
+        user_id: user!.id,
+        number: state.context.number,
+        date: state.context.date,
+        line_items: cartState.context.lineItems,
+        state,
+        status: state.value,
+    })
+
+    if (orderError) {
+        throw orderError
     }
 
     let line_items: Stripe.Checkout.SessionCreateParams.LineItem[] =
