@@ -5,3 +5,10 @@ export type Tables<T extends keyof Database['public']['Tables']> =
 
 export type Product = Tables<'products'>
 export type Cart = Tables<'carts'>
+
+export type LineItem = {
+    slug: string
+    name: string
+    price: number
+    quantity: number
+}

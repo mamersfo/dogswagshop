@@ -4,10 +4,17 @@ import { revalidatePath } from 'next/cache'
 import { type Product } from '@/types'
 import { Amount } from '@/app/components'
 import PhotoCredits from './photo-credits'
+import { send } from '@/lib/cart'
 
 export default function ProductDetails(product: Product) {
     const addToCart = async () => {
         'use server'
+        await send({
+            type: 'addToCart',
+            slug: product.slug,
+            name: product.name,
+            price: product.price,
+        })
         revalidatePath('/shop')
     }
 
