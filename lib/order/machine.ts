@@ -1,4 +1,7 @@
-import { createMachine } from 'xstate'
+import { assign, createMachine } from 'xstate'
+import { client } from '@/trigger'
+import { StripeInfo } from '@/utils/stripe'
+import { Customer, Payment, Shipping } from '@/types'
 
 export const orderMachine = createMachine(
     {
@@ -6,6 +9,7 @@ export const orderMachine = createMachine(
         types: {} as {
             context: OrderContext
             events: OrderEvent
+            actions: OrderAction
         },
         context: {
             number: Math.floor(Math.random() * 1000000 + 1),
@@ -16,6 +20,14 @@ export const orderMachine = createMachine(
             ordered: {
                 on: {
                     payment: {
+                        actions: [
+                            assign({
+                                amount: ({ event }) => event.info.amount,
+                                customer: ({ event }) => event.info.customer,
+                                payment: ({ event }) => event.info.payment,
+                                shipping: ({ event }) => event.info.shipping,
+                            }),
+                        ],
                         target: 'queued',
                     },
                 },
@@ -72,18 +84,43 @@ export const orderMachine = createMachine(
         },
     },
     {
-        actions: {},
+        actions: {
+            sendEmail: ({ context, event }, params) => {
+                client.sendEvent({
+                    name: 'send.email',
+                    payload: {
+                        type: params?.type,
+                        recipient: context.customer?.email,
+                        subject: `Your dogswagshop order #${context.number}`,
+                        context,
+                    },
+                })
+            },
+            sendTextMessage: ({ context, event }, params) => {
+                client.sendEvent({
+                    name: 'send.text.message',
+                    payload: {
+                        text: params.message,
+                    },
+                })
+            },
+        },
     }
 )
 
 export type OrderContext = {
     number: number
     date: Date
+    amount?: number
+    customer?: Customer
+    payment?: Payment
+    shipping?: Shipping
 }
 
 export type OrderEvent =
     | {
           type: 'payment'
+          info: StripeInfo
       }
     | {
           type: 'assignment'
@@ -96,4 +133,18 @@ export type OrderEvent =
       }
     | {
           type: 'reset'
+      }
+
+export type OrderAction =
+    | {
+          type: 'sendEmail'
+          params: {
+              type: string
+          }
+      }
+    | {
+          type: 'sendTextMessage'
+          params: {
+              message: string
+          }
       }

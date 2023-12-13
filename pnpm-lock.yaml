@@ -20,7 +20,16 @@ dependencies:
   '@trigger.dev/nextjs':
     specifier: ^2.3.5
     version: 2.3.5(@trigger.dev/sdk@2.3.5)(next@14.0.4)
+  '@trigger.dev/react':
+    specifier: ^2.3.5
+    version: 2.3.5(react-dom@18.2.0)(react@18.2.0)
   '@trigger.dev/sdk':
+    specifier: ^2.3.5
+    version: 2.3.5
+  '@trigger.dev/stripe':
+    specifier: ^2.3.5
+    version: 2.3.5
+  '@trigger.dev/supabase':
     specifier: ^2.3.5
     version: 2.3.5
   autoprefixer:
@@ -312,6 +321,28 @@ packages:
       tailwindcss: 3.3.3
     dev: false
 
+  /@tanstack/query-core@5.0.0-beta.0:
+    resolution: {integrity: sha512-VGq/H3PuRoj0shOcg1S5Flv3YD2qNz2ttk8w5xe5AHQE1I8NO9EHSBUxezIpk4dD6M7bQDtwHBMqqU2EwMwyUw==}
+    dev: false
+
+  /@tanstack/react-query@5.0.0-beta.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-JdK1HRw20tuwg3GfT3QZTkuS7s2KDa9FeozuJ7jZULlwPczZagouqYmM6+PL0ad6jfCnw8NzmLFtZdlBx6cTmA==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@tanstack/query-core': 5.0.0-beta.0
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /@trigger.dev/core-backend@2.3.5:
     resolution: {integrity: sha512-WB0sAg+9n7kfw4CdJSHWhQbsprq3FZ9GjlVC1CaE55u5bzkwm3hcG0Hk5TdPfbehSt0V1WS6iGRvLLW2kGIykg==}
     engines: {node: '>=18.0.0'}
@@ -326,6 +357,14 @@ packages:
       zod-error: 1.5.0
     dev: false
 
+  /@trigger.dev/integration-kit@2.3.5:
+    resolution: {integrity: sha512-1KPvt5GqJHaV7ePJFriYqJ/4kVejz7IiUHgyVdgiuRZa09ptjQbvniRmSofCFKTBuzNynb5Nt2ehJfcHRjYeTQ==}
+    engines: {node: '>=18.0.0'}
+    dependencies:
+      '@trigger.dev/core': 2.3.5
+      uuid: 9.0.1
+    dev: false
+
   /@trigger.dev/nextjs@2.3.5(@trigger.dev/sdk@2.3.5)(next@14.0.4):
     resolution: {integrity: sha512-OuGZoiAKtETr4Opx2Z/uvb/1TldjOYRFSwdNekZf6DJkG6WOYMFZOb8NrXV223UckyAAk34E00mjQiFI1qH23Q==}
     engines: {node: '>=18.0.0'}
@@ -337,6 +376,22 @@ packages:
       debug: 4.3.4
       next: 14.0.4(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@trigger.dev/react@2.3.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Gw5fIFmRBFpNRYLqq7D9kbdaYuDigPVrC0f9sUWQPoTebNypjqiaf5ZcsFDvLtl6RND9bM/Xh6XGKWl1VSeBjw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18
+    dependencies:
+      '@tanstack/react-query': 5.0.0-beta.2(react-dom@18.2.0)(react@18.2.0)
+      '@trigger.dev/core': 2.3.5
+      debug: 4.3.4
+      react: 18.2.0
+      zod: 3.22.3
+    transitivePeerDependencies:
+      - react-dom
+      - react-native
       - supports-color
     dev: false
 
@@ -358,6 +413,35 @@ packages:
       ulid: 2.3.0
       uuid: 9.0.1
       ws: 8.15.1
+      zod: 3.22.3
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: false
+
+  /@trigger.dev/stripe@2.3.5:
+    resolution: {integrity: sha512-ZWqVecfkYyZH/1436y2ar7PIJ/o0XQ98LcYeU5FWuw//BNtSUMNydakhhGqS4t70FK82r3wnh7dsmpV96chlcA==}
+    engines: {node: '>=16.8.0'}
+    dependencies:
+      '@trigger.dev/integration-kit': 2.3.5
+      '@trigger.dev/sdk': 2.3.5
+      stripe: 12.18.0
+      zod: 3.22.3
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: false
+
+  /@trigger.dev/supabase@2.3.5:
+    resolution: {integrity: sha512-neXc83RXTeXkmwXm2S7PXrhRn6IUwOPxSa8xx+YEUM1qAUanSYkb01jlgDgJVP13lk+/L1bXyNYX6k4RUwmuFQ==}
+    engines: {node: '>=18.0.0'}
+    dependencies:
+      '@supabase/supabase-js': 2.39.0
+      '@trigger.dev/integration-kit': 2.3.5
+      '@trigger.dev/sdk': 2.3.5
+      supabase-management-js: 1.0.0
       zod: 3.22.3
     transitivePeerDependencies:
       - bufferutil
@@ -999,6 +1083,10 @@ packages:
       wrappy: 1.0.2
     dev: false
 
+  /openapi-fetch@0.6.2:
+    resolution: {integrity: sha512-Faj29Kzh7oCbt1bz6vAGNKtRJlV/GolOQTx87eYUnfCK7eVXdN9jQVojroc7tcJ5OQgyhbeOqD7LS/8UtGBnMQ==}
+    dev: false
+
   /path-is-absolute@1.0.1:
     resolution: {integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==}
     engines: {node: '>=0.10.0'}
@@ -1237,6 +1325,14 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: false
 
+  /stripe@12.18.0:
+    resolution: {integrity: sha512-cYjgBM2SY/dTm8Lr6eMyyONaHTZHA/QjHxFUIW5WH8FevSRIGAVtXEmBkUXF1fsqe7QvvRgQSGSJZmjDacegGg==}
+    engines: {node: '>=12.*'}
+    dependencies:
+      '@types/node': 20.3.1
+      qs: 6.11.2
+    dev: false
+
   /stripe@14.8.0:
     resolution: {integrity: sha512-Qdecqk7lx095BE829NWxrG1+69NjPuHrpZqeR61i2KO00fpKkjMX9TYjwFU+WjQD6ZcNmCGOwNfnz5VnI5bjIg==}
     engines: {node: '>=12.*'}
@@ -1274,6 +1370,13 @@ packages:
       mz: 2.7.0
       pirates: 4.0.6
       ts-interface-checker: 0.1.13
+    dev: false
+
+  /supabase-management-js@1.0.0:
+    resolution: {integrity: sha512-CjtUcT1i3lsIyRwS3/HG6BUB8EaJTEdAPP0GQu8dRDi61HvJeBrswCfG/GRxebC0ZZFov+oHqFIWPe1ztyUqYA==}
+    engines: {node: '>=18.0.0'}
+    dependencies:
+      openapi-fetch: 0.6.2
     dev: false
 
   /supports-color@7.2.0:
