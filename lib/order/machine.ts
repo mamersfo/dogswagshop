@@ -43,7 +43,7 @@ export const orderMachine = createMachine(
                     {
                         type: 'sendTextMessage',
                         params: {
-                            message: 'order-confirmation',
+                            message: 'New order received',
                         },
                     },
                 ],
