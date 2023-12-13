@@ -96,7 +96,7 @@ const LineItems = ({ lineItems }: { lineItems: LineItem[] }) => {
     )
 }
 
-const Totals = ({ state }: { state: any }) => {
+const Totals = ({ state }: { state: State }) => {
     return (
         <div className='flex flex-col gap-4'>
             <div className='text-center'>
