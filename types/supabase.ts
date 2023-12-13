@@ -34,6 +34,28 @@ export interface Database {
   }
   public: {
     Tables: {
+      carts: {
+        Row: {
+          state: Json | null
+          user_id: string
+        }
+        Insert: {
+          state?: Json | null
+          user_id: string
+        }
+        Update: {
+          state?: Json | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "carts_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       products: {
         Row: {
           id: number
