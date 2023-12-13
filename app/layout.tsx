@@ -1,25 +1,25 @@
-import { GeistSans } from "geist/font";
-import "./globals.css";
+import { GeistSans } from 'geist/font'
+import './globals.css'
 
 const defaultUrl = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
+    : 'http://localhost:3000'
 
 export const metadata = {
     metadataBase: new URL(defaultUrl),
-    title: "dogswagshop",
-};
+    title: 'dogswagshop',
+}
 
 export default function RootLayout({
     children,
 }: {
-    children: React.ReactNode;
+    children: React.ReactNode
 }) {
     return (
-        <html lang="en" className={GeistSans.className}>
+        <html lang='en' className={GeistSans.className}>
             <body>
-                <main className="p-4">{children}</main>
+                <main className='p-4 h-screen w-full'>{children}</main>
             </body>
         </html>
-    );
+    )
 }
