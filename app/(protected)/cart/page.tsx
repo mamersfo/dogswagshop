@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache'
 import { createClient } from '@/utils/supabase/server'
 import { Amount, Debug } from '@/app/components'
 import { type LineItem } from '@/types'
+import { createCheckoutSession } from '@/app/actions/stripe'
 import { send } from '@/lib/cart'
 
 export default async function Page() {
@@ -96,7 +97,7 @@ const LineItems = ({ lineItems }: { lineItems: LineItem[] }) => {
     )
 }
 
-const Totals = ({ state }: { state: State }) => {
+const Totals = ({ state }: { state: any }) => {
     return (
         <div className='flex flex-col gap-4'>
             <div className='text-center'>
@@ -107,7 +108,7 @@ const Totals = ({ state }: { state: State }) => {
             </div>
             <div className='flex flex-col gap-4'>
                 {state?.context.itemSum > 0 && (
-                    <form>
+                    <form action={createCheckoutSession}>
                         <button className='btn w-full'>Checkout</button>
                     </form>
                 )}
