@@ -9,6 +9,7 @@ export function Steps({ status }: { status: string }) {
         <ul className='steps w-full'>
             {steps.map((s: string, idx: number) => (
                 <li
+                    key={`step-${idx}`}
                     className={clsx('step', {
                         'step-secondary': current >= idx,
                     })}
