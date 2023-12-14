@@ -1,0 +1,74 @@
+[
+    {
+        "id": "1",
+        "name": "Baseball Tee",
+        "short_description": "Red and white shirt",
+        "long_description": "Baseball athletes like to play fetch. Your dog likes to play fetch. I you go out with your dog and play fetch, or if you bring him along to the baseball stadium, here’s a baseball tee that your dog can wear for the occasion. The t-shirt is made from organic materials.",
+        "tags": ["shirt", "organic"],
+        "price_in_euros": "19.9500000000000000"
+    },
+    {
+        "id": "2",
+        "name": "Sheep Costume",
+        "short_description": "Sheep clothing for your dog",
+        "long_description": "In case of Halloween, Christmas parties or whatever - if your best friend needs a costume, look no further. Seriously, here is a costume that will turn your favourite carnivore into the angelic figure you want it to be, occasionally. What’s wrong anyway with a dog in sheep’s clothing, right? Not much, at least not for Halloween, or the Christmas holidays we think. The sheep’s costume is made from recycled materials, and sports a tiny little present.",
+        "tags": ["party", "halloween"],
+        "price_in_euros": "29.9500000000000000"
+    },
+    {
+        "id": "3",
+        "name": "Varsity Jacket",
+        "short_description": "Green varsity jacket for your doggo",
+        "long_description": "When it’s cold and wet outside, but you must walk your dog, you ordinarily decide put on a coat or jacket, right? Well, that’s a great idea for your dog too. In order to protect you best friend from harsh conditions you can buy him this green sports jacket, and he’ll be allright, just like you.",
+        "tags": ["sustainable"],
+        "price_in_euros": "109.9500000000000000"
+    },
+    {
+        "id": "4",
+        "name": "Yellow Sweater",
+        "short_description": "A sweater for your champion, by Champion",
+        "long_description": "Champion is a well-known sports apparel brand. But did you know they have a full division for pet sportswear as well? Take for instance this yellow sweater, that will certainly look cool for your very own champion.",
+        "tags": ["fashion", "party"],
+        "price_in_euros": "79.9500000000000000"
+    },
+    {
+        "id": "5",
+        "name": "Off White Hoodie",
+        "short_description": "Dogwear for the streets",
+        "long_description": "Top of the bill hoodie, made from organic cotton, from the famous streetwear brand Off White. This could be the gift for you dog, which will earn him some serious street credibility. Golden chain is not included.",
+        "tags": ["streetwear", "hipster"],
+        "price_in_euros": "399.0000000000000000"
+    },
+    {
+        "id": "6",
+        "name": "Dog Collar",
+        "short_description": "Who’s a good boy?",
+        "long_description": "It’s one of those essential items. Sure, your dog is a good boy (girl), but once his eye catches one of those nasty neighbourhood cats you can be sure he will be chasing them through the streets. So here’s a fashionable collar to keep him close to you.",
+        "tags": ["walk", "pink"],
+        "price_in_euros": "19.9500000000000000"
+    },
+    {
+        "id": "7",
+        "name": "Antler Headband",
+        "short_description": "A prop for you Christmas party",
+        "long_description": "Here’s an idea for the Christmas holidays, deer antler headbands for your dog to wear on his head. Great for parties. Displayed Christmas costume is not included.",
+        "tags": ["christmas", "party"],
+        "price_in_euros": "10.9500000000000000"
+    },
+    {
+        "id": "8",
+        "name": "Banana Pyjamas",
+        "short_description": "Blue and yellow pyjamas",
+        "long_description": "At night, when the heater is off, the house becomes colder. But sometimes your dog is up, wandering around, looking for a warm place to take his next nap. To keep him warm, put on this pyjamas, and he will feel much more comfortable. Banana is not included in the price.",
+        "tags": ["nightwear", "organic"],
+        "price_in_euros": "16.9900000000000000"
+    },
+    {
+        "id": "9",
+        "name": "Hooded Shirt",
+        "short_description": "Yellow and green shirt",
+        "long_description": "This hooded shirt is made from a blend of cotton and synthetic materials, which makes it more flexible and more comfortable to wear for your active dog. It’s got a green plume on top of it, that will attract most people’s (and most other dog’s) attention.",
+        "tags": ["shirt"],
+        "price_in_euros": "16.9900000000000000"
+    }
+]
