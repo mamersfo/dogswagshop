@@ -43,6 +43,9 @@ export default async function Profile() {
                     <Link href='/shop/orders'>Orders</Link>
                 </li>
                 <li>
+                    <Link href='/shop/willow'>Willow</Link>
+                </li>
+                <li>
                     <form action={signOut}>
                         <button>Logout</button>
                     </form>
